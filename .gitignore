@@ -11,6 +11,7 @@ __pycache__/
 
 # Files
 test.py
+app/configs/streamers.json
 
 # Distribution / packaging
 .Python
