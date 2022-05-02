@@ -16,7 +16,7 @@ class General(Cog):
 
     @Cog.listener()
     async def on_member_join(self, member):
-        self.bot.log.info("Ha entrado")
+        self.bot.log.info("General Plugin loaded")
         join_channel = self.bot.get_channel(WELCOME_CHANNEL_ID)
         join_msg = await join_channel.send(f"{member.mention}, {WEL_MESSAGE}")
         await join_msg.add_reaction('👋')

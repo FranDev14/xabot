@@ -9,6 +9,10 @@ __pycache__/
 # Folders IDE
 .idea/*
 
+# Files
+test.py
+app/configs/streamers.json
+
 # Distribution / packaging
 .Python
 build/
