@@ -40,25 +40,28 @@ def check_user(user):
 class TwitchBot(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
-        self.guild = None
-        self.channel = None
         self.streamers_json = join(dirname(__file__), '../configs/streamers.json')
 
     @Cog.listener()
     async def on_ready(self):
-        self.guild = self.bot.guilds[0]
-        self.channel = self.bot.get_channel(int(TW_CHANNEL))
-
+        self.bot.log.info("Twitch Plugin loaded")
         self.live_notification_loop.start()
 
-    @tasks.loop(seconds=30.0)
+    @tasks.loop(seconds=5.0)
     async def live_notification_loop(self):
+        # Reload variables
+        guild = await self.bot.fetch_guild(int(TW_GUILD))
+        channel = await self.bot.fetch_channel(TW_CHANNEL)
+        role = get(guild.roles, id=int(TW_ROLE_ID))
 
         with open(self.streamers_json, 'r') as file:
             streamers = json.loads(file.read())
 
         if streamers is not None:
-            print("Ha pasado")
+            for user_id, twitch_name in streamers.items():
+                status, data = check_user(twitch_name)
+                test = await self.bot.fetch_user(user_id)
+                print(str(status), str(data), str(test))
 
 
 def setup(bot):
