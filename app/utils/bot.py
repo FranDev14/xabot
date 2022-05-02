@@ -14,3 +14,4 @@ bot.log = logger
 # Load Extensions
 bot.load_extension("app.modules.general")
 bot.load_extension("app.modules.commands")
+bot.load_extension("app.modules.twitch")

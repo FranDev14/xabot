@@ -16,7 +16,7 @@ class Commands(Cog):
     # Reddit meme generator
     @command(pass_context=True)
     async def meme(self, ctx):
-        embed = discord.Embed(title="", description="")
+        embed = discord.Embed(title="test", description="testing")
 
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://www.reddit.com/r/dankmemes/new.json?sort=hot') as r:
