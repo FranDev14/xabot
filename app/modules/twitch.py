@@ -27,11 +27,11 @@ def check_user(user):
         data = requests.get(TW_ENDPOINT.format(user), headers=header).json()
 
         if not data['data']:
-            return False, data
+            return False
         elif data['data'][0]['type'] == "live":
-            return True, data
+            return True
         else:
-            return False, data
+            return False
 
     except Exception as e:
         print("Error checking user: ", e)
@@ -47,7 +47,7 @@ class TwitchBot(Cog):
         self.bot.log.info("Twitch Plugin loaded")
         self.live_notification_loop.start()
 
-    @tasks.loop(seconds=5.0)
+    @tasks.loop(minutes=5.0)
     async def live_notification_loop(self):
         # Reload variables
         guild = await self.bot.fetch_guild(int(TW_GUILD))
@@ -59,9 +59,28 @@ class TwitchBot(Cog):
 
         if streamers is not None:
             for user_id, twitch_name in streamers.items():
-                status, data = check_user(twitch_name)
-                test = await self.bot.fetch_user(user_id)
-                print(str(status), str(data), str(test))
+                status = check_user(twitch_name)
+                user = await self.bot.fetch_user(user_id)
+
+                if status is True:
+                    async for member in guild.fetch_members(limit=None):
+                        if member.id == int(user_id):
+                            await member.add_roles(role)
+                    await channel.send(
+                        f":red_circle: **LIVE** :red_circle:\n{user.mention} esta en directo! Pasate a saludar! @here"
+                        f"\nhttps://www.twitch.tv/{twitch_name}")
+
+                else:
+                    async for member in guild.fetch_members(limit=None):
+                        if member.id == int(user_id):
+                            await member.remove_roles(role)
+
+    # TODO: Chat cleaner move to commands module
+    # @command(name='eraser')
+    # async def purge(self, ctx):
+    #     await ctx.channel.delete()
+    # TODO: Add module for add users into streamers.json example: https://mystb.in/CompeteRejectedAshley.python
+    # TODO: Add module for remove users into streamers.json
 
 
 def setup(bot):
