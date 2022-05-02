@@ -8,7 +8,7 @@ authors = ["FranDev <olmelofran@gmail.com>"]
 python = "^3.8"
 "discord.py" = "^1.7.3"
 python-dotenv = "^0.20.0"
-twitchAPI = "^2.5.3"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 

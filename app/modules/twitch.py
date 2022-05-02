@@ -3,8 +3,9 @@ import json
 import requests
 from discord.ext.commands import Bot, Cog, command
 from discord.ext import tasks
+from discord.utils import get
 from os.path import join, dirname
-from app.utils.constants import TW_SECRET, TW_CLIENT_ID, TW_ENDPOINT, TW_AUTH_ENDPOINT, TW_MESSAGE, TW_NOTIFICATION_CHANNEL
+from app.utils.constants import TW_SECRET, TW_CLIENT_ID, TW_ENDPOINT, TW_AUTH_ENDPOINT, TW_MESSAGE, TW_ROLE_ID, TW_CHANNEL, TW_GUILD
 
 
 autparams = {'client_id': TW_CLIENT_ID,
@@ -39,19 +40,25 @@ def check_user(user):
 class TwitchBot(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
+        self.guild = None
+        self.channel = None
         self.streamers_json = join(dirname(__file__), '../configs/streamers.json')
-
-        check_user('imxavik')
 
     @Cog.listener()
     async def on_ready(self):
-        @tasks.loop(seconds=10)
-        async def live_notification_loop():
-            with open(self.streamers_json, 'r') as file:
-                streamers = json.loads(file.read())
+        self.guild = self.bot.guilds[0]
+        self.channel = self.bot.get_channel(int(TW_CHANNEL))
 
-            if streamers is not None:
-                print("Ha pasado")
+        self.live_notification_loop.start()
+
+    @tasks.loop(seconds=30.0)
+    async def live_notification_loop(self):
+
+        with open(self.streamers_json, 'r') as file:
+            streamers = json.loads(file.read())
+
+        if streamers is not None:
+            print("Ha pasado")
 
 
 def setup(bot):
