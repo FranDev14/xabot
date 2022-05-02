@@ -16,6 +16,7 @@ WEL_MESSAGE = ("Bienvenido al servidor! Antes de empezar, porfavor leete las nor
 # TwitchAPI
 TW_CLIENT_ID = os.getenv("CLIENT_ID")
 TW_SECRET = os.getenv("SECRET_KEY")
-TW_TOKEN = os.getenv("TW_TOKEN")
-TW_REFRESH_TOKEN = os.getenv("TW_REFRESH_TOKEN")
+TW_ENDPOINT = os.getenv("TW_ENDPOINT")
+TW_AUTH_ENDPOINT = os.getenv("TW_AUTH_ENDPOINT")
 TW_MESSAGE = ("Hola! @everyone {} esta en directo! Pasate y saluda!")
+TW_NOTIFICATION_CHANNEL = os.getenv("TW_NOTIFICATION_CHANNEL")
