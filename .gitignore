@@ -9,6 +9,9 @@ __pycache__/
 # Folders IDE
 .idea/*
 
+# Files
+test.py
+
 # Distribution / packaging
 .Python
 build/
