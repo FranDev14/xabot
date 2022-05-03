@@ -75,11 +75,24 @@ class TwitchBot(Cog):
                         if member.id == int(user_id):
                             await member.remove_roles(role)
 
-    # TODO: Chat cleaner move to commands module
-    # @command(name='eraser')
-    # async def purge(self, ctx):
-    #     await ctx.channel.delete()
-    # TODO: Add module for add users into streamers.json example: https://mystb.in/CompeteRejectedAshley.python
+    @command(name='addtwitch', help='Añade un twitch al sistema de streamers', pass_context=True)
+    async def add_twitch(self, ctx, user, twitch_name):
+        userID = discord.User = user
+
+        with open(self.streamers_json, 'r') as file:
+            streamers = json.loads(file.read())
+
+        userID = userID.replace("@", "")
+        userID = userID.replace("<", "")
+        userID = userID.replace(">", "")
+
+        streamers[userID] = twitch_name
+
+        with open(self.streamers_json, 'w') as file:
+            file.write(json.dumps(streamers, indent='\t'))
+
+        await ctx.send(f"Added {twitch_name} for {user} to the notification list")
+
     # TODO: Add module for remove users into streamers.json
 
 

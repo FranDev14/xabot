@@ -24,6 +24,11 @@ class Commands(Cog):
                 embed.set_image(url=res['data']['children'] [random.randint(0, 25)]['data']['url'])
                 await ctx.send(embed=embed)
 
+    # TODO: Chat cleaner move to commands module
+    # @command(name='eraser')
+    # async def purge(self, ctx):
+    #     await ctx.channel.delete()
+
 
 def setup(bot):
     bot.add_cog(Commands(bot))
