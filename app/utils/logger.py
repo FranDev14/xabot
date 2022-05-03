@@ -1,9 +1,7 @@
 import datetime
 import logging
-
 from discord import Color, Embed
 from discord.ext import commands
-
 from app.utils.constants import LOG_CHANNEL_ID
 
 LEVEL_COLORS = {
