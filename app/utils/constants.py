@@ -9,7 +9,7 @@ load_dotenv(dotenv_path)
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 LOG_CHANNEL_ID = 970749166118633512
-WELCOME_CHANNEL_ID = 970749077136474143
+WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
 WEL_MESSAGE = ("Bienvenido al servidor! Antes de empezar, porfavor leete las normas "
                "en #{}. Una vez leidas, aceptalas reaccionando a su mensaje!".format(os.getenv("HELP_CHANNEL")))
 
