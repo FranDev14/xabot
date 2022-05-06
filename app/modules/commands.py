@@ -8,11 +8,6 @@ class Commands(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
 
-    """@command()
-    async def hola(self, ctx):
-        await ctx.send('Pa ti mi cola')
-    """
-
     # Reddit meme generator
     @command(pass_context=True)
     async def meme(self, ctx):
@@ -24,10 +19,9 @@ class Commands(Cog):
                 embed.set_image(url=res['data']['children'] [random.randint(0, 25)]['data']['url'])
                 await ctx.send(embed=embed)
 
-    # TODO: Chat cleaner move to commands module
-    # @command(name='eraser')
-    # async def purge(self, ctx):
-    #     await ctx.channel.delete()
+    @command(name='eraser')
+    async def purge(self, ctx, amount=200):
+        await ctx.channel.purge(limit=amount)
 
 
 def setup(bot):

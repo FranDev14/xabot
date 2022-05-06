@@ -8,7 +8,7 @@ load_dotenv(dotenv_path)
 # Discord
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-LOG_CHANNEL_ID = 970749166118633512
+LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID")
 WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
 WEL_MESSAGE = ("Bienvenido al servidor! Antes de empezar, porfavor leete las normas "
                "en #{}. Una vez leidas, aceptalas reaccionando a su mensaje!".format(os.getenv("HELP_CHANNEL")))
