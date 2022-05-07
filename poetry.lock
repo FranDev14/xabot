@@ -98,17 +98,6 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "python-dotenv"
-version = "0.20.0"
-description = "Read key-value pairs from a .env file and set them as environment variables"
-category = "main"
-optional = false
-python-versions = ">=3.5"
-
-[package.extras]
-cli = ["click (>=5.0)"]
-
-[[package]]
 name = "rcon"
 version = "2.2.0"
 description = "An RCON client library."
@@ -173,7 +162,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "b3dcef52a576594e1b730d54116167b32a773595615d394219c30e93ed223395"
+content-hash = "1044620627b20833e47be1c21fee64b93ccd4d3651f30cad776203591ba917f1"
 
 [metadata.files]
 aiohttp = [
@@ -303,10 +292,6 @@ multidict = [
     {file = "multidict-6.0.2-cp39-cp39-win32.whl", hash = "sha256:23b616fdc3c74c9fe01d76ce0d1ce872d2d396d8fa8e4899398ad64fb5aa214a"},
     {file = "multidict-6.0.2-cp39-cp39-win_amd64.whl", hash = "sha256:4bae31803d708f6f15fd98be6a6ac0b6958fcf68fda3c77a048a4f9073704aae"},
     {file = "multidict-6.0.2.tar.gz", hash = "sha256:5ff3bd75f38e4c43f1f470f2df7a4d430b821c4ce22be384e1459cb57d6bb013"},
-]
-python-dotenv = [
-    {file = "python-dotenv-0.20.0.tar.gz", hash = "sha256:b7e3b04a59693c42c36f9ab1cc2acc46fa5df8c78e178fc33a8d4cd05c8d498f"},
-    {file = "python_dotenv-0.20.0-py3-none-any.whl", hash = "sha256:d92a187be61fe482e4fd675b6d52200e7be63a12b724abbf931a40ce4fa92938"},
 ]
 rcon = [
     {file = "rcon-2.2.0-py3-none-any.whl", hash = "sha256:588f349879e5aa79fdcf9034d17e6ce544c267c701ef4bb3ddd454c08da204ee"},

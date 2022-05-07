@@ -1,6 +1,4 @@
-import discord
 from discord.ext.commands import Bot, Cog
-from app.utils.constants import WELCOME_CHANNEL_ID, WEL_MESSAGE
 
 
 class General(Cog):
@@ -10,9 +8,8 @@ class General(Cog):
     @Cog.listener()
     async def on_ready(self):
         print("We have logged in as {0.user}".format(self.bot))
-        self.bot.log.info(
-            "XaBot bot is ready"
-        )
+        print("General plugin loaded")
+        self.bot.log.info("General module loaded")
 
 
 def setup(bot):

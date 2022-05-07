@@ -30,3 +30,8 @@ TW_ROLE_ID = int(config['discord_ids']['streamer_role'])
 TW_GUILD = int(config['twitch_live']['guild_id'])
 ANOUNCES_ROLE_EVENT = int(config['discord_ids']['event_role'])
 ANOUNCES_ROLE_SHOP = int(config['discord_ids']['shop_role'])
+
+# Rcon module
+RCON_IP = str(config['rcon']['ip'])
+RCON_PASS = str(config['rcon']['pass'])
+RCON_PORT = int(config['rcon']['port'])

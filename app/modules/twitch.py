@@ -50,7 +50,8 @@ class TwitchBot(Cog):
     # When plugin loading, check if streamers.json exists and launch the notification task
     @Cog.listener()
     async def on_ready(self):
-        self.bot.log.info("Twitch Plugin loaded")
+        self.bot.log.info("Twitch module loaded")
+        print("Twitch plugin loaded")
         if not os.path.exists(self.streamers_json):
             with open(self.streamers_json, "w") as file:
                 file.write(json.dumps({}, indent='\t'))

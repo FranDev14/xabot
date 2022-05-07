@@ -5,12 +5,19 @@ import random
 import os
 from os.path import join, dirname
 from app.utils.constants import ANOUNCES_ROLE_EVENT, ANOUNCES_ROLE_SHOP
+from app.utils.constants import RCON_PASS, RCON_PORT, RCON_IP
+from rcon.source import rcon
 
 
 class Commands(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
         self.whitelist_users = join(dirname(__file__), '../configs/whitelisted.json')
+
+    @Cog.listener()
+    async def on_ready(self):
+        print("Commands plugin loaded")
+        self.bot.log.info("Commands module loaded")
 
     # Reddit meme generator
     @command(pass_context=True)
