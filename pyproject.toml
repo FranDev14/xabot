@@ -5,10 +5,11 @@ description = "A discord bot multipurpose"
 authors = ["FranDev <olmelofran@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 "discord.py" = "^1.7.3"
 python-dotenv = "^0.20.0"
 requests = "^2.27.1"
+rcon = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
 
