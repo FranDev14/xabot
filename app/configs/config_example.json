@@ -1,0 +1,27 @@
+{
+  "bot_config": {
+    "bot_token": "",
+    "log_channel" : ""
+  },
+  "twitch_live": {
+    "clientID": "",
+    "secretKey": "",
+    "api_helix": "",
+    "auth_point": "",
+    "guild_id": ""
+  },
+  "discord_channels": {
+    "help_channel": "",
+    "welcome_channel": "",
+    "twitch_channel": "",
+    "announces_channel": ""
+  },
+  "discord_ids": {
+    "event_role": "",
+    "shop_role": "",
+    "streamer_role": ""
+  },
+  "messages": {
+    "welcome": ""
+  }
+}

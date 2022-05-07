@@ -1,26 +1,37 @@
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+import json
 
 dotenv_path = join(dirname(__file__), '../../.env')
 load_dotenv(dotenv_path)
 
+config_file = join(dirname(__file__), '../configs/config.json')
+
+with open(config_file, 'r') as file:
+    config = json.loads(file.read())
+
 # Discord
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = config['bot_config']['bot_token']
+LOG_CHANNEL_ID = int(config['bot_config']['log_channel'])
 
-LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID")
-WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
-WEL_MESSAGE = ("Bienvenido al servidor! Antes de empezar, porfavor leete las normas "
-               "en #{}. Una vez leidas, aceptalas reaccionando a su mensaje!".format(os.getenv("HELP_CHANNEL")))
+# Channel IDs
+WELCOME_CHANNEL_ID = int(config['discord_channels']['welcome_channel'])
+TW_CHANNEL = int(config['discord_channels']['twitch_channel'])
+HELP_CHANNEL = int(config['discord_channels']['help_channel'])
+ANOUNCES = int(config['discord_channels']['announces_channel'])
 
-# TwitchAPI
-TW_CLIENT_ID = os.getenv("CLIENT_ID")
-TW_SECRET = os.getenv("SECRET_KEY")
-TW_ENDPOINT = os.getenv("TW_ENDPOINT")
-TW_AUTH_ENDPOINT = os.getenv("TW_AUTH_ENDPOINT")
-TW_MESSAGE = ("Hola! @everyone {} esta en directo! Pasate y saluda!")
-TW_CHANNEL = os.getenv("TW_CHANNEL")
-TW_ROLE_ID = os.getenv("TW_ROLE_ID")
-TW_GUILD = os.getenv("TW_GUILD")
-ANOUNCES_ROLE_EVENT = os.getenv("ANOUNCES_ROLE_EVENT")
-ANOUNCES_ROLE_SHOP = os.getenv("ANOUNCES_ROLE_SHOP")
+# Twitch Config
+TW_CLIENT_ID = config['twitch_live']['clientID']
+TW_SECRET = config['twitch_live']['secretKey']
+TW_ENDPOINT = config['twitch_live']['api_helix']
+TW_AUTH_ENDPOINT = config['twitch_live']['auth_point']
+
+# Messages
+WEL_MESSAGE = config['messages']['welcome'].format(HELP_CHANNEL)
+
+# Roles and Server
+TW_ROLE_ID = int(config['discord_ids']['streamer_role'])
+TW_GUILD = int(config['twitch_live']['guild_id'])
+ANOUNCES_ROLE_EVENT = int(config['discord_ids']['event_role'])
+ANOUNCES_ROLE_SHOP = int(config['discord_ids']['shop_role'])
