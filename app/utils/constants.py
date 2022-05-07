@@ -1,10 +1,5 @@
-import os
 from os.path import join, dirname
-from dotenv import load_dotenv
 import json
-
-dotenv_path = join(dirname(__file__), '../../.env')
-load_dotenv(dotenv_path)
 
 config_file = join(dirname(__file__), '../configs/config.json')
 
