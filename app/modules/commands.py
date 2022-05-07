@@ -2,6 +2,7 @@ import discord
 from discord.ext.commands import Bot, Cog, command
 import aiohttp
 import random
+import os
 from os.path import join, dirname
 from app.utils.constants import ANOUNCES_ROLE_EVENT, ANOUNCES_ROLE_SHOP
 
@@ -40,12 +41,14 @@ class Commands(Cog):
                 await ctx.send(embed=embed)
 
     @command(name='add_whitelist')
-    async def add_whitelist(self, ctx, user: discord.User):
-        # Add discord role for whitelist and rcon connection to addit
-        pass
+    async def add_whitelist(self, ctx, user: discord.User, steamid):
+
+        if not os.path.exists(self.whitelist_users):
+            with open(self.whitelist_users, "w") as file:
+                pass
 
     @command(name='remove_whitelist')
-    async def remove_whitelist(self, ctx, user: discord.User):
+    async def remove_whitelist(self, ctx, user: discord.User, steamid):
         # Add discord role for whitelist and rcon connection to addit
         pass
 

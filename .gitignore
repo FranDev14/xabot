@@ -13,6 +13,7 @@ __pycache__/
 # Files
 test.py
 app/configs/streamers.json
+app/configs/whitelisted.json
 
 # Distribution / packaging
 .Python
