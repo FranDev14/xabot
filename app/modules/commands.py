@@ -3,6 +3,7 @@ from discord.ext.commands import Bot, Cog, command
 import aiohttp
 import random
 from os.path import join, dirname
+from app.utils.constants import ANOUNCES_ROLE_EVENT, ANOUNCES_ROLE_SHOP
 
 
 class Commands(Cog):
@@ -26,8 +27,17 @@ class Commands(Cog):
         await ctx.channel.purge(limit=amount)
 
     @command(name='announce')
-    async def announce(self, ctx):
-        pass
+    async def announce(self, ctx, title):
+        await ctx.message.delete()
+
+        for role in ctx.author.roles:
+            if role.id == int(ANOUNCES_ROLE_EVENT):
+                embed = discord.Embed(title=title, color=discord.Color.gold())
+                await ctx.send(embed=embed)
+
+            elif role.id == int(ANOUNCES_ROLE_SHOP):
+                embed = discord.Embed(title=title, color=discord.Color.red())
+                await ctx.send(embed=embed)
 
     @command(name='add_whitelist')
     async def add_whitelist(self, ctx, user: discord.User):
