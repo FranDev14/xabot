@@ -2,17 +2,12 @@ import discord
 from discord.ext.commands import Bot, Cog, command
 import aiohttp
 import random
-import os
-from os.path import join, dirname
 from app.utils.constants import ANOUNCES_ROLE_EVENT, ANOUNCES_ROLE_SHOP
-from app.utils.constants import RCON_PASS, RCON_PORT, RCON_IP
-from rcon.source import rcon
 
 
 class Commands(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
-        self.whitelist_users = join(dirname(__file__), '../configs/whitelisted.json')
 
     @Cog.listener()
     async def on_ready(self):
@@ -46,18 +41,6 @@ class Commands(Cog):
             elif role.id == int(ANOUNCES_ROLE_SHOP):
                 embed = discord.Embed(title=title, color=discord.Color.red())
                 await ctx.send(embed=embed)
-
-    @command(name='add_whitelist')
-    async def add_whitelist(self, ctx, user: discord.User, steamid):
-
-        if not os.path.exists(self.whitelist_users):
-            with open(self.whitelist_users, "w") as file:
-                pass
-
-    @command(name='remove_whitelist')
-    async def remove_whitelist(self, ctx, user: discord.User, steamid):
-        # Add discord role for whitelist and rcon connection to addit
-        pass
 
 
 def setup(bot):
