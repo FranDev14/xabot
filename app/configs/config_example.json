@@ -6,8 +6,8 @@
   "twitch_live": {
     "clientID": "",
     "secretKey": "",
-    "api_helix": "",
-    "auth_point": "",
+    "api_helix": "https://api.twitch.tv/helix/streams?user_login={}",
+    "auth_point": "https://id.twitch.tv/oauth2/token",
     "guild_id": ""
   },
   "discord_channels": {
@@ -23,5 +23,10 @@
   },
   "messages": {
     "welcome": ""
+  },
+  "rcon": {
+    "ip": "",
+    "port": "",
+    "pass": ""
   }
 }
