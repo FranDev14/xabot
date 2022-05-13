@@ -1,0 +1,39 @@
+{
+  "bot_config": {
+    "bot_token": "",
+    "log_channel" : ""
+  },
+  "twitch_live": {
+    "clientID": "",
+    "secretKey": "",
+    "api_helix": "https://api.twitch.tv/helix/streams?user_login={}",
+    "auth_point": "https://id.twitch.tv/oauth2/token",
+    "guild_id": ""
+  },
+  "discord_channels": {
+    "help_channel": "",
+    "welcome_channel": "",
+    "twitch_channel": "",
+    "announces_channel": "",
+    "rules_channel": ""
+  },
+  "discord_ids": {
+    "event_role": "",
+    "shop_role": "",
+    "streamer_role": ""
+  },
+  "messages": {
+    "welcome": ""
+  },
+  "rcon": {
+    "ip": "",
+    "port": "",
+    "pass": ""
+  },
+  "reaction_roles": {
+    "messageId": {
+      "emoji": "roleId"
+    }
+  }
+
+}

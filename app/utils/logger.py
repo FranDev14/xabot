@@ -21,7 +21,7 @@ class DiscordHandler(logging.Handler):
         super().__init__(*args, **kwargs)
 
         self.client = bot
-        self.log_channel = self.client.get_channel(LOG_CHANNEL_ID)
+        self.log_channel = self.client.get_channel(int(LOG_CHANNEL_ID))
 
     def _level_to_color(self, level_number: int):
         return LEVEL_COLORS.get(level_number)
@@ -49,7 +49,7 @@ class DiscordHandler(logging.Handler):
                 embed.add_field(name=field, value=value, inline=True)
 
         if self.log_channel is None:
-            self.log_channel = self.client.get_channel(LOG_CHANNEL_ID)
+            self.log_channel = self.client.get_channel(int(LOG_CHANNEL_ID))
 
         # Create a task in the event loop to send the logging embed
         self.client.loop.create_task(self.log_channel.send(embed=embed))
