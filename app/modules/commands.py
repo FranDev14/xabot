@@ -2,16 +2,17 @@ import discord
 from discord.ext.commands import Bot, Cog, command
 import aiohttp
 import random
+from app.utils.constants import ANOUNCES_ROLE_EVENT, ANOUNCES_ROLE_SHOP
 
 
 class Commands(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
 
-    """@command()
-    async def hola(self, ctx):
-        await ctx.send('Pa ti mi cola')
-    """
+    @Cog.listener()
+    async def on_ready(self):
+        print("Commands plugin loaded")
+        self.bot.log.info("Commands module loaded")
 
     # Reddit meme generator
     @command(pass_context=True)
@@ -24,10 +25,22 @@ class Commands(Cog):
                 embed.set_image(url=res['data']['children'] [random.randint(0, 25)]['data']['url'])
                 await ctx.send(embed=embed)
 
-    # TODO: Chat cleaner move to commands module
-    # @command(name='eraser')
-    # async def purge(self, ctx):
-    #     await ctx.channel.delete()
+    @command(name='eraser')
+    async def purge(self, ctx, amount=200):
+        await ctx.channel.purge(limit=amount)
+
+    @command(name='announce')
+    async def announce(self, ctx, title):
+        await ctx.message.delete()
+
+        for role in ctx.author.roles:
+            if role.id == int(ANOUNCES_ROLE_EVENT):
+                embed = discord.Embed(title=title, color=discord.Color.gold())
+                await ctx.send(embed=embed)
+
+            elif role.id == int(ANOUNCES_ROLE_SHOP):
+                embed = discord.Embed(title=title, color=discord.Color.red())
+                await ctx.send(embed=embed)
 
 
 def setup(bot):

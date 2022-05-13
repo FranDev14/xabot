@@ -7,7 +7,7 @@ from discord.ext.commands import Bot, Cog, command
 from discord.ext import tasks
 from discord.utils import get
 from os.path import join, dirname
-from app.utils.constants import TW_SECRET, TW_CLIENT_ID, TW_ENDPOINT, TW_AUTH_ENDPOINT, TW_MESSAGE, TW_ROLE_ID, TW_CHANNEL, TW_GUILD
+from app.utils.constants import TW_SECRET, TW_CLIENT_ID, TW_ENDPOINT, TW_AUTH_ENDPOINT, TW_ROLE_ID, TW_CHANNEL, TW_GUILD
 
 
 autparams = {'client_id': TW_CLIENT_ID,
@@ -50,7 +50,8 @@ class TwitchBot(Cog):
     # When plugin loading, check if streamers.json exists and launch the notification task
     @Cog.listener()
     async def on_ready(self):
-        self.bot.log.info("Twitch Plugin loaded")
+        self.bot.log.info("Twitch module loaded")
+        print("Twitch plugin loaded")
         if not os.path.exists(self.streamers_json):
             with open(self.streamers_json, "w") as file:
                 file.write(json.dumps({}, indent='\t'))
