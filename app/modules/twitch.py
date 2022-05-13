@@ -114,7 +114,6 @@ class TwitchBot(Cog):
         # Send confirmation to the channel that send the command
         await ctx.send(f"Added {twitch_name} for {user} to the notification list")
 
-    # TODO: Add module for remove users into streamers.json
     @command(name='removetwitch', help='Elimina un usuario de twitch del sistema de streamers', pass_context=True)
     async def remove_twitch(self, ctx, user):
         # Get the user ID
