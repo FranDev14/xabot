@@ -35,3 +35,6 @@ ANOUNCES_ROLE_SHOP = int(config['discord_ids']['shop_role'])
 RCON_IP = str(config['rcon']['ip'])
 RCON_PASS = str(config['rcon']['pass'])
 RCON_PORT = int(config['rcon']['port'])
+
+# Emoji reaction
+REACTION_JSON = config['reaction_roles']

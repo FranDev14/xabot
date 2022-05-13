@@ -14,7 +14,8 @@
     "help_channel": "",
     "welcome_channel": "",
     "twitch_channel": "",
-    "announces_channel": ""
+    "announces_channel": "",
+    "rules_channel": ""
   },
   "discord_ids": {
     "event_role": "",
@@ -28,5 +29,11 @@
     "ip": "",
     "port": "",
     "pass": ""
+  },
+  "reaction_roles": {
+    "messageId": {
+      "emoji": "roleId"
+    }
   }
+
 }
