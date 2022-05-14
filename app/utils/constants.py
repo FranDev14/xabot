@@ -38,3 +38,4 @@ RCON_PORT = int(config['rcon']['port'])
 
 # Emoji reaction
 REACTION_JSON = config['reaction_roles']
+TICKET_SYSTEM = config['ticket_system']

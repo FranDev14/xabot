@@ -43,10 +43,6 @@ class General(Cog):
     async def on_raw_reaction_add(self, payload: RawReactionActionEvent):
         await self.process_reaction(payload, "add")
 
-    @Cog.listener()
-    async def on_raw_reaction_remove(self, payload: RawReactionActionEvent):
-        await self.process_reaction(payload, "remove")
-
 
 def setup(bot):
     bot.add_cog(General(bot))

@@ -67,6 +67,23 @@ python-versions = ">=3.5.0"
 unicode_backport = ["unicodedata2"]
 
 [[package]]
+name = "discord-py-slash-command"
+version = "3.0.3"
+description = "A slash command handler for discord.py."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+aiohttp = "*"
+"discord.py" = "*"
+
+[package.extras]
+dev = ["black", "flake8", "isort", "sphinx", "karma-sphinx-theme"]
+lint = ["black", "flake8", "isort", "sphinx", "karma-sphinx-theme"]
+readthedocs = ["sphinx", "karma-sphinx-theme"]
+
+[[package]]
 name = "discord.py"
 version = "1.7.3"
 description = "A Python wrapper for the Discord API"
@@ -162,7 +179,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "1044620627b20833e47be1c21fee64b93ccd4d3651f30cad776203591ba917f1"
+content-hash = "d46c66c9cbc250232f24a3916e4dfe4f40effabff0a68fda923e3329f9640168"
 
 [metadata.files]
 aiohttp = [
@@ -223,6 +240,10 @@ chardet = [
 charset-normalizer = [
     {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
     {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
+]
+discord-py-slash-command = [
+    {file = "discord-py-slash-command-3.0.3.tar.gz", hash = "sha256:a9a220492e1a32fc66a20aebe49ccb6d6308a504d79627096f4e9443fdd8978e"},
+    {file = "discord_py_slash_command-3.0.3-py3-none-any.whl", hash = "sha256:e6a83a0bd656ad96859483450ade1a4e760b3351e612a9639fd6acf14abe1676"},
 ]
 "discord.py" = [
     {file = "discord.py-1.7.3-py3-none-any.whl", hash = "sha256:c6f64db136de0e18e090f6752ea68bdd4ab0a61b82dfe7acecefa22d6477bb0c"},
