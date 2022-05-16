@@ -9,6 +9,7 @@ __pycache__/
 # Folders IDE
 .idea/*
 .venv/*
+.vscode/*
 
 # Files
 test.py

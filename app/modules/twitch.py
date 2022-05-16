@@ -7,7 +7,7 @@ from discord.ext.commands import Bot, Cog, command
 from discord.ext import tasks
 from discord.utils import get
 from os.path import join, dirname
-from app.utils.constants import TW_SECRET, TW_CLIENT_ID, TW_ENDPOINT, TW_AUTH_ENDPOINT, TW_ROLE_ID, TW_CHANNEL, TW_GUILD
+from app.utils.constants import TW_SECRET, TW_CLIENT_ID, TW_ENDPOINT, TW_AUTH_ENDPOINT, TW_ROLE_ID, TW_CHANNEL, GUILD_ID
 
 
 autparams = {'client_id': TW_CLIENT_ID,
@@ -63,7 +63,7 @@ class TwitchBot(Cog):
     @tasks.loop(minutes=5.0)
     async def live_notification_loop(self):
         # Get different variables from ID
-        guild = await self.bot.fetch_guild(int(TW_GUILD))
+        guild = await self.bot.fetch_guild(int(GUILD_ID))
         channel = await self.bot.fetch_channel(TW_CHANNEL)
         role = get(guild.roles, id=int(TW_ROLE_ID))
 

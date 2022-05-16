@@ -9,6 +9,7 @@ with open(config_file, 'r') as file:
 # Discord
 BOT_TOKEN = config['bot_config']['bot_token']
 LOG_CHANNEL_ID = int(config['bot_config']['log_channel'])
+GUILD_ID = int(config['bot_config']['guild_id'])
 
 # Channel IDs
 WELCOME_CHANNEL_ID = int(config['discord_channels']['welcome_channel'])
@@ -27,7 +28,6 @@ WEL_MESSAGE = config['messages']['welcome'].format(HELP_CHANNEL)
 
 # Roles and Server
 TW_ROLE_ID = int(config['discord_ids']['streamer_role'])
-TW_GUILD = int(config['twitch_live']['guild_id'])
 ANOUNCES_ROLE_EVENT = int(config['discord_ids']['event_role'])
 ANOUNCES_ROLE_SHOP = int(config['discord_ids']['shop_role'])
 
@@ -38,4 +38,8 @@ RCON_PORT = int(config['rcon']['port'])
 
 # Emoji reaction
 REACTION_JSON = config['reaction_roles']
-TICKET_SYSTEM = config['ticket_system']
+
+# Ticket system
+TICKET_MOD_ROLE_ID = int(config['ticket_system']['ticket_mod'])
+TICKET_CATEGORY_NAME = str(config['ticket_system']['category_name'])
+MANAGEMENT_ROLE = int(config['ticket_system']['management_mod'])
